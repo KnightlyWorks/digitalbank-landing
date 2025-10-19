@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+/*- Weights: 300, 400, 700*/
+@import "tailwindcss";
+
+@custom-variant hocus (&:hover, &:focus-visible);
+
+@theme {
+  /* Primary Colors */
+  --color-blue-950: hsl(233, 26%, 24%);
+  --color-green-500: hsl(136, 64%, 51%);
+  --color-cyan-400: hsl(192, 69%, 51%);
+
+  /* Neutral Colors */
+  --color-gray-600: hsl(233, 8%, 62%);
+  --color-gray-100: hsl(220, 16%, 96%);
+  --color-gray-50: hsl(0, 0%, 98%);
+  --color-white: hsl(0, 100%, 100%);
+}
+
+@layer base {
+  body {
+    font-family: "Public Sans", sans-serif;
+    @apply text-[18px] antialiased;
+  }
+
+  p {
+    max-width: 45ch;
+  }
+}
+@layer components {
+  .request-button {
+    @apply hocus:animate-pulse rounded-3xl bg-gradient-to-bl from-green-500 to-cyan-400 px-5 py-2 text-sm font-bold text-white transition-[opacity_scale] duration-300 hover:scale-105 focus:ring-2 focus:ring-blue-950 focus:outline-none active:scale-90 active:animate-none;
+  }
+
+  .header-links a {
+    @apply hocus:text-black hocus:before:w-full hocus:before:bg-green-500 hocus:before:opacity-100 hocus:before:content-[''] relative transition-all before:absolute before:-bottom-1 before:left-0 before:h-1 before:opacity-0 before:transition-all before:duration-300;
+  }
+
+  .green-links a {
+    @apply hocus:text-green-500/95 transition-colors;
+  }
+
+  .card-container {
+    @apply [&>*]:hocus:scale-115 [&>*]:hocus:shadow-2xl grid grid-cols-1 sm:grid-cols-2 sm:gap-2 md:gap-4 lg:grid-cols-4 [&>*]:relative [&>*]:z-30 [&>*]:rounded-xl [&>*]:bg-gray-50 [&>*]:pb-10 [&>*]:outline-offset-4 [&>*]:outline-cyan-400 [&>*]:transition-[scale] [&>*]:duration-300;
+  }
+}
